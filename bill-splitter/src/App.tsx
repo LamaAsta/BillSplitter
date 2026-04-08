@@ -5,6 +5,7 @@ import type { IItem } from './interfaces/Interaces';
 
 import { TitleImpl } from './components/title/title';
 import { FriendListImpl } from './components/friendList/friendList';
+import { AddItemImpl } from './components/addItem/addItem';
 
 function App() {
   const [friendsList,setFriendsList] = useState<string[]>([]);
@@ -23,7 +24,12 @@ function App() {
           <TitleImpl/>
         </div>
         <div>
-          <div className = 'leftPanel'>add item</div>
+          <div className = 'leftPanel'>
+            <AddItemImpl
+              itemList={itemList}
+              setItemList={setItemList}
+            />
+          </div>
           <div className = 'rightPanel'>
             <FriendListImpl
               friendsList={friendsList}
