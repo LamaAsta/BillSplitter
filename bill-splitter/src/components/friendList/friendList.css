@@ -1,0 +1,11 @@
+.namePlate{
+    padding:5px;
+    margin-block-end: 2px;
+    border: 1px white solid;
+}
+
+.addMemberButton{
+    border:3px white dotted;
+    border-radius: 15%;
+    background-color: inherit;
+}
