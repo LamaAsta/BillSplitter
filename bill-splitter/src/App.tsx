@@ -1,17 +1,35 @@
 import { useState,useEffect } from 'react'
 import './App.css'
 
-import type { IItem } from './interfaces/Interaces';
+import type { IItem,IFriend } from './interfaces/Interaces';
 
 import { TitleImpl } from './components/title/title';
 import { FriendListImpl } from './components/friendList/friendList';
 import { AddItemImpl } from './components/addItem/addItem';
+import { DistributionTableImpl } from './components/distributionTable/distributionTable';
 
 function App() {
-  const [friendsList,setFriendsList] = useState<string[]>([]);
+  const [friendsList,setFriendsList] = useState<IFriend[]>([]);
   const [itemList,setItemList] = useState<IItem[]>([]);
   useEffect(()=>{
-      const defaultList= ['GJ','Amal','Ananya','Ankith','Anushka'];
+      const defaultList:IFriend[]= [
+        {
+          name:'GJ',
+          owes:0,
+        },{
+          name:'Amal',
+          owes:0,
+        },{
+          name:'Ananya',
+          owes:0,
+        },{
+          name:'Ankith',
+          owes:0,
+        },{
+          name:'Anushka',
+          owes:0,
+        }
+      ];
       setFriendsList(defaultList);
   },
   [])
@@ -38,7 +56,12 @@ function App() {
           </div>
         </div>
         <div>
-            table
+            <DistributionTableImpl
+              itemList={itemList}
+              setItemList={setItemList}
+              friendsList={friendsList}
+              setFriendsList={setFriendsList}
+            />
         </div>
         <div>
             splits 

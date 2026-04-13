@@ -1,13 +1,13 @@
 import { useState } from "react";
-import type { friendListProps } from "../../interfaces/Interaces";
+import type { friendListProps,IFriend} from "../../interfaces/Interaces";
 import "./friendList.css"
 
 export function FriendListImpl(props:friendListProps){
     const [newMember,setNewMember] = useState<string>('');
-    const namePlate = (name:string)=>{
+    const namePlate = (friend:IFriend)=>{
         return(
             <div className = 'namePlate'>
-                {name}
+                {friend.name}
             </div>
         )
     }
@@ -15,7 +15,7 @@ export function FriendListImpl(props:friendListProps){
         if(!newMember.trim()){
             return;
         }
-        props.setFriendsList([...props.friendsList,newMember])
+        props.setFriendsList([...props.friendsList,{name:newMember,owes:0}])
         setNewMember('');
     }
     return(

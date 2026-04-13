@@ -2,12 +2,12 @@ import type { IItem,addItemProps } from "../../interfaces/Interaces";
 import {  useState } from "react";
 
 export function AddItemImpl(props:addItemProps){
-    const [newItem,setNewItem] = useState<IItem>({name:"Name",cost:0});
+    const [newItem,setNewItem] = useState<IItem>({name:"Name",cost:0,dividedAmong:[]});
     
     const handleAddNewItem = ()=>{
         if(newItem.cost<=0 || !newItem.name) return;
         props.setItemList([...props.itemList,newItem]);
-        setNewItem({name:"Name",cost:0})
+        setNewItem({name:"Name",cost:0,dividedAmong:[]})
     }
 
     return(
@@ -23,7 +23,7 @@ export function AddItemImpl(props:addItemProps){
                 onChange={(e)=>setNewItem({...newItem,cost:Number(e.target.value)})}
             />
             <button
-                onClick={()=>{handleAddNewItem();console.log('is it not extending',props.itemList)}}
+                onClick={()=>{handleAddNewItem()}}
             >
                 add 
             </button>
