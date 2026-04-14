@@ -15,6 +15,7 @@
   /* border:1px solid red; */
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 :root{
@@ -49,7 +50,7 @@ body{
 
 button{
   font-family: Courier New;
-  padding:5px;
+  padding:5px 10px;
   border-radius:10%;
   border-top-left-radius: 0px;
   border-width: 0px 2px 2px 0px;
@@ -71,5 +72,5 @@ table{
 th{
   border-width:0 0 2px 0;
   border-style:solid;
-  padding:6px;
+  padding:4px;
 }

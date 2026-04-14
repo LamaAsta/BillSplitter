@@ -12,21 +12,48 @@ export function AddItemImpl(props:addItemProps){
 
     return(
         <>
-            <input 
-                type="text" 
-                value={newItem.name}
-                onChange={(e)=>setNewItem({...newItem,name:e.target.value})}
-            />
-            <input 
-                type="text"
-                value={newItem.cost}
-                onChange={(e)=>setNewItem({...newItem,cost:Number(e.target.value)})}
-            />
-            <button
-                onClick={()=>{handleAddNewItem()}}
-            >
-                add 
-            </button>
+            <div className="container">
+                <div>
+                    <input 
+                        type="text" 
+                        value={newItem.name}
+                        onChange={(e)=>setNewItem({...newItem,name:e.target.value})}
+                    />
+                    <input 
+                        type="text"
+                        value={newItem.cost}
+                        onChange={(e)=>setNewItem({...newItem,cost:Number(e.target.value)})}
+                    />
+                    <button
+                        onClick={()=>{handleAddNewItem()}}
+                    >
+                        add 
+                    </button>
+                </div>
+                <div>
+                    <table>
+                        <thead>
+                            <th>
+                                Item Name
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                        </thead>
+                        <tbody>
+                            {props.itemList.map((item:IItem)=>{
+                                return(
+                                    <tr>
+                                        <td>{item.name}</td>
+                                        <td>{item.cost}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                
 
         </>
     )

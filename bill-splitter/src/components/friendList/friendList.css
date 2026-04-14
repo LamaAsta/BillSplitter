@@ -1,6 +1,9 @@
 .namePlate{
-    padding:5px;
-    margin-block-end: 2px;
+    padding:0px 4px;
+    margin-block-end: 10px;
+    border-width:0 0 0  3px;
+    border-style:solid;
+    border-color:#F3B61F;
 }
 
 .addMemberButton{

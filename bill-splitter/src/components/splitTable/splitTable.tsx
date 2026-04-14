@@ -20,36 +20,38 @@ export function SplitTableImpl(props:splitTableProps){
 
     return(
         <>
-            <div>
-                <input
-                    value = {tax}
-                    onChange = {(e:any)=>setTax(e.target.value)}
-                />
-                <button
-                    onClick = {()=>handleTaxChange(tax)}
-                >
-                    add
-                </button>
-
-
-                <table>
-                    <thead>
-                        {finalSplit.map((e:IFriend)=>
-                            <th>
-                                {e.name}
-                            </th>
-                        )}
-                    </thead>
-                    <tbody>
-                        <tr>
+            <div className="container">
+                <div>
+                    <input
+                        value = {tax}
+                        onChange = {(e:any)=>setTax(e.target.value)}
+                    />
+                    <button
+                        onClick = {()=>handleTaxChange(tax)}
+                    >
+                        add
+                    </button>
+                </div>
+                <div>   
+                    <table>
+                        <thead>
                             {finalSplit.map((e:IFriend)=>
-                            <td>
-                                {e.owes}
-                            </td>
-                        )}
-                        </tr>
-                    </tbody>
-                </table>
+                                <th>
+                                    {e.name}
+                                </th>
+                            )}
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {finalSplit.map((e:IFriend)=>
+                                <td>
+                                    {e.owes.toFixed(2)}
+                                </td>
+                            )}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
     )

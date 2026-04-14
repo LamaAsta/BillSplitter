@@ -48,7 +48,7 @@ export function DistributionTableImpl(
         return (
             <tr>
                 <td></td>
-                {...props.friendsList.map((friend:IFriend)=><td>{friend.owes}</td>)}
+                {...props.friendsList.map((friend:IFriend)=><td>{friend.owes.toFixed(2)}</td>)}
             </tr>
         )
     }
