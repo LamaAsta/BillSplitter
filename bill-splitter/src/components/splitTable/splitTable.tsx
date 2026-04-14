@@ -35,9 +35,9 @@ export function SplitTableImpl(props:splitTableProps){
                 <table>
                     <thead>
                         {finalSplit.map((e:IFriend)=>
-                            <td>
+                            <th>
                                 {e.name}
-                            </td>
+                            </th>
                         )}
                     </thead>
                     <tbody>

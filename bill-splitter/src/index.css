@@ -32,11 +32,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
+    --text: #F3B61F;
+    --text-h: #F3B61F;
+    --bg: #190B28;
     --border: #2e303a;
-    --code-bg: #1f2028;
+    --code-bg: #190B28;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
@@ -68,7 +68,7 @@ body {
 
 h1,
 h2 {
-  font-family: var(--heading);
+  /* font-family: var(--heading); */
   font-weight: 500;
   color: var(--text-h);
 }
@@ -97,7 +97,7 @@ p {
 
 code,
 .counter {
-  font-family: var(--mono);
+  /* font-family: var(--mono); */
   display: inline-flex;
   border-radius: 4px;
   color: var(--text-h);

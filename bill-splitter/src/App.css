@@ -25,8 +25,51 @@
 .rightPanel{
   flex:1;
   width:100%;
+  margin-inline:100px;
 }
 
 .leftPanel{
   flex:3
+}
+
+input{
+  padding:5px;
+  margin:2px;
+  border-radius: 10%;
+  border-top-left-radius: 0px;
+  border-color: #F3B61F;
+  border-width: 0px 2px 2px 0px;
+  color:#F3B61F;
+  background-color: #190B28;
+}
+
+body{
+  font-family: Courier New;
+}
+
+button{
+  font-family: Courier New;
+  padding:5px;
+  border-radius:10%;
+  border-top-left-radius: 0px;
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color:#F3B61F;
+  background-color: #12100E;
+  color:#F3B61F;
+}
+
+button:active{
+  border-width: 2px 0px 0px 2px;
+}
+
+table{
+  background-color: #12100E;
+  border-color:#F3B61F;
+}
+
+th{
+  border-width:0 0 2px 0;
+  border-style:solid;
+  padding:6px;
 }
