@@ -1,4 +1,5 @@
 import type { IItem,IFriend,distributionTableProps } from "../../interfaces/Interaces";
+import { FriendListImpl } from "../friendList/friendList";
 import "./distributionTable.css"
 
 export function DistributionTableImpl(
@@ -6,7 +7,7 @@ export function DistributionTableImpl(
 ){
 
     const createTop = (friendList:IFriend[])=>{
-        return [<th> </th>, ...friendList.map((e:IFriend)=><th> {e.name} </th>)];
+        return [<th> </th>, ...friendList.map((e:IFriend)=><th onClick={()=>handleIsActive(e.name)} className = {e.isActive? "disabled-header":""}> {e.name} </th>)];
     }
     const createBody = (itemList:IItem[],friendList:IFriend[])=>{
         const inputCells = (e:IItem)=>friendList.map((f:IFriend)=>
@@ -34,7 +35,7 @@ export function DistributionTableImpl(
         friendsList.map((friend:IFriend)=>{
             friend.owes = 0;
         })
-        itemList.map((item:IItem)=>{
+        itemList.map((item:IItem)=>{   
             const n = item.dividedAmong.length;
             const share = item.cost/n 
 
@@ -68,6 +69,13 @@ export function DistributionTableImpl(
                 } : e
             )
         )
+    }
+
+    const handleIsActive = (name:string)=>{
+        const updatedList = props.friendsList.map((friend:IFriend)=>
+            friend.name === name ? {...friend,"isActive":!friend.isActive} : friend
+        )
+        props.setFriendsList(updatedList);
     }
     return(
         <>

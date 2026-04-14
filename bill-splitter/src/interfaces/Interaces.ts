@@ -7,6 +7,7 @@ export interface IItem  {
 export interface IFriend{
     name:string;
     owes:number;
+    isActive:boolean;
 }
 
 export interface friendListProps{

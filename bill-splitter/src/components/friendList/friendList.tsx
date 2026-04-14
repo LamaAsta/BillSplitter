@@ -15,7 +15,7 @@ export function FriendListImpl(props:friendListProps){
         if(!newMember.trim()){
             return;
         }
-        props.setFriendsList([...props.friendsList,{name:newMember,owes:0}])
+        props.setFriendsList([...props.friendsList,{name:newMember,owes:0,isActive:true}])
         setNewMember('');
     }
     return(
