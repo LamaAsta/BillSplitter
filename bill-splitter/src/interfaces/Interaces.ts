@@ -25,3 +25,8 @@ export interface distributionTableProps{
     itemList:IItem[];
     setItemList:(args:IItem[])=>void;
 }
+
+export interface splitTableProps{
+    friendsList:IFriend[],
+    setFriendsList:(args:IFriend[])=>void;
+}

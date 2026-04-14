@@ -1,15 +1,9 @@
-import { useEffect } from "react";
 import type { IItem,IFriend,distributionTableProps } from "../../interfaces/Interaces";
 import "./distributionTable.css"
 
 export function DistributionTableImpl(
     props:distributionTableProps
 ){
-
-    useEffect(()=>{
-        const rows = props.itemList.length;
-        const columns = props.friendsList.length+1;
-    },[props.friendsList,props.itemList])
 
     const createTop = (friendList:IFriend[])=>{
         return [<th> </th>, ...friendList.map((e:IFriend)=><th> {e.name} </th>)];

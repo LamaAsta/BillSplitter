@@ -7,6 +7,7 @@ import { TitleImpl } from './components/title/title';
 import { FriendListImpl } from './components/friendList/friendList';
 import { AddItemImpl } from './components/addItem/addItem';
 import { DistributionTableImpl } from './components/distributionTable/distributionTable';
+import { SplitTableImpl } from './components/splitTable/splitTable';
 
 function App() {
   const [friendsList,setFriendsList] = useState<IFriend[]>([]);
@@ -64,7 +65,10 @@ function App() {
             />
         </div>
         <div>
-            splits 
+            <SplitTableImpl
+              friendsList={friendsList}
+              setFriendsList={setFriendsList}
+            />
         </div>
       </div>
     </>
