@@ -1,4 +1,4 @@
-import type { IItem,IFriend,distributionTableProps } from "../../interfaces/Interaces";
+import type { IItem, IFriend, distributionTableProps } from "../../interfaces/Interaces";
 import "./distributionTable.css"
 
 export function DistributionTableImpl(
