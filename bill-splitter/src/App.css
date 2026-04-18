@@ -74,3 +74,21 @@ th{
   border-style:solid;
   padding:4px;
 }
+
+@media (max-width:500px) {
+  .container > div{
+    flex-direction: column;
+  }
+
+  .rightPanel>div>button{
+    width:10%;
+  }
+
+  .tableMobileView {
+      overflow-x: scroll;
+      overflow-y: scroll;
+      table-layout: auto;
+      width:80%;
+      max-height:20vh;
+  }
+}

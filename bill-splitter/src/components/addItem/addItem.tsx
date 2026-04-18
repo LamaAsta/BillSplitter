@@ -30,7 +30,7 @@ export function AddItemImpl(props:addItemProps){
                         add 
                     </button>
                 </div>
-                <div>
+                <div className="tableMobileView">
                     <table>
                         <thead>
                             <th>

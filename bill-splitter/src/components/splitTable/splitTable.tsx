@@ -37,7 +37,7 @@ export function SplitTableImpl(props:splitTableProps){
                         add
                     </button>
                 </div>
-                <div>   
+                <div className="tableMobileView">   
                     <table>
                         <thead>
                             {finalSplit.map((e:IFriend)=>

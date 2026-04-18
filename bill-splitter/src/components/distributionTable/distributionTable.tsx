@@ -78,17 +78,19 @@ export function DistributionTableImpl(
     }
     return(
         <>
-            <table className="distributionTable">
-                <thead>
-                    <tr>
-                        {createTop(props.friendsList)}
-                    </tr>
-                </thead>
-                <tbody>
-                    {createBody(props.itemList,props.friendsList)}
-                    {createBottom(props.itemList,props.friendsList)}
-                </tbody>
-            </table>
+            <div className="tableMobileView">
+                <table >
+                    <thead>
+                        <tr>
+                            {createTop(props.friendsList)}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {createBody(props.itemList,props.friendsList)}
+                        {createBottom(props.itemList,props.friendsList)}
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }
