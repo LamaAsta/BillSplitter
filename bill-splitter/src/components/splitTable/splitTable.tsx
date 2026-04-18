@@ -6,13 +6,18 @@ export function SplitTableImpl(props:splitTableProps){
     const [finalSplit,setFinalSplit] = useState<IFriend[]>([])
 
     const handleTaxChange = (tax:number)=>{
-        const n = props.friendsList.length
+        console.log(props.friendsList.filter((friend:IFriend)=>friend.isActive))
+        const n = props.friendsList.filter((friend:IFriend)=>friend.isActive).length
         const share = tax/n
         const updateFriendList = props.friendsList.map((friend:IFriend) => {
-            return {
+            return friend.isActive ?  
+            {
             ...friend,
             owes:friend.owes + share,
-        }})
+            }
+            :
+            friend    
+    })
         console.log("updated:",updateFriendList)
         setFinalSplit(updateFriendList);
     }
