@@ -26,12 +26,17 @@ export function SplitTableImpl(props:splitTableProps){
     return(
         <>
             <div className="container">
-                <div>
+                <div className="taxBar">
+                    <div className="taxField">
+                        <div className="taxLabel">Tax / tip / fees</div>
                     <input
+                        className="taxInput"
                         value = {tax}
                         onChange = {(e:any)=>setTax(e.target.value)}
                     />
+                    </div>
                     <button
+                        className="taxButton"
                         onClick = {()=>handleTaxChange(tax)}
                     >
                         add
