@@ -53,7 +53,7 @@ export function DistributionTableImpl(
         )
     }
 
-    const handleChange = (item:IItem,friend:IFriend,s)=>{
+    const handleChange = (item:IItem,friend:IFriend,s:any)=>{
         let dA = []
         if(s.target.checked){
             dA = [...item.dividedAmong,friend.name]
