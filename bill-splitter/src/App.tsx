@@ -14,6 +14,56 @@ function App() {
   const [itemList,setItemList] = useState<IItem[]>([]);
   useEffect(()=>{
       const defaultList:IFriend[]= [
+        {
+          name:"GJ",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"Amal",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"Ankith",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"Ananya",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"Anushka",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"Dhanush",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"DBMS",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"DJ",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"Dyu",
+          owes:0,
+          isActive:true
+        },
+        {
+          name:"Ilaa",
+          owes:0,
+          isActive:true
+        },
       ];
       setFriendsList(defaultList);
   },
