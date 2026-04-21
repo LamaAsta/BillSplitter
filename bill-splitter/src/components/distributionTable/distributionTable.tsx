@@ -1,5 +1,6 @@
 import type { IItem, IFriend, distributionTableProps } from "../../interfaces/Interaces";
-import "./distributionTable.css"
+import "./distributionTable.css";
+import React from "react";
 
 export function DistributionTableImpl(
     props:distributionTableProps
@@ -53,7 +54,7 @@ export function DistributionTableImpl(
         )
     }
 
-    const handleChange = (item:IItem,friend:IFriend,s:any)=>{
+    const handleChange = (item:IItem,friend:IFriend,s:React.ChangeEvent<HTMLInputElement>)=>{
         let dA = []
         if(s.target.checked){
             dA = [...item.dividedAmong,friend.name]
