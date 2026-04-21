@@ -86,6 +86,48 @@ input:focus-visible {
   overflow-x: auto;
 }
 
+.taxBar{
+  width: 100%;
+  display: flex;
+  gap: var(--space-2);
+  align-items: end;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.taxField{
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.taxLabel{
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  color: var(--text-muted);
+}
+
+.taxInput{
+  width: 100%;
+}
+
+.taxButton{
+  white-space: nowrap;
+  background: rgba(243, 182, 31, 0.12);
+}
+
+@media (max-width: 640px) {
+  .taxField{
+    min-width: 100%;
+  }
+
+  .taxButton{
+    width: 100%;
+  }
+}
+
 @media (max-width: 640px) {
   .row {
     grid-template-columns: 1fr;
