@@ -2,9 +2,9 @@
 export function TitleImpl(){
     return(
         <>
-            <h2>
-                BILL SPLITTER
-            </h2>
+            <h1>
+                Bill Splitter
+            </h1>
         </>
     )
 }

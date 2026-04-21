@@ -7,25 +7,41 @@ export function DistributionTableImpl(
 ){
 
     const createTop = (friendList:IFriend[])=>{
-        return [<th> </th>, ...friendList.map((e:IFriend)=><th onClick={()=>handleIsActive(e.name)} className = {e.isActive? "":"disabled-header"}> {e.name} </th>)];
+        return [
+            <th key="item-col" scope="col">Item</th>,
+            ...friendList.map((e:IFriend)=>(
+                <th key={e.name} scope="col" className={e.isActive ? "" : "disabled-header"}>
+                    <button
+                        type="button"
+                        className="tableHeaderButton"
+                        onClick={()=>handleIsActive(e.name)}
+                        aria-pressed={e.isActive}
+                        aria-label={`Toggle ${e.name} active`}
+                    >
+                        {e.name}
+                    </button>
+                </th>
+            ))
+        ];
     }
     const createBody = (itemList:IItem[],friendList:IFriend[])=>{
-        const inputCells = (e:IItem)=>friendList.map((f:IFriend)=>
-            <td>
-                <input 
+        const inputCells = (e:IItem)=>friendList.map((f:IFriend)=>(
+            <td key={`${e.name}:${f.name}`}>
+                <input
                     type="checkbox"
+                    checked={e.dividedAmong.includes(f.name)}
                     onChange={(s)=>handleChange(e,f,s)}
-                >
-                </input>
+                    aria-label={`Split ${e.name} with ${f.name}`}
+                />
             </td>
-        )
+        ))
         const rows = itemList.map(
-            (e:IItem)=> <tr key = {e.name}>
-                <td>
-                    {e.name}
-                </td>
-                {inputCells(e)}
-            </tr>
+            (e:IItem)=> (
+                <tr key={e.name}>
+                    <th scope="row">{e.name}</th>
+                    {inputCells(e)}
+                </tr>
+            )
         )
         return rows
     }
@@ -47,9 +63,13 @@ export function DistributionTableImpl(
             })
         })
         return (
-            <tr>
-                <td></td>
-                {...props.friendsList.map((friend:IFriend)=><td>{friend.owes.toFixed(2)}</td>)}
+            <tr className="totalRow">
+                <th scope="row">Total</th>
+                {...props.friendsList.map((friend:IFriend)=>
+                    <td key={`total:${friend.name}`}>
+                        {friend.owes.toFixed(2)}
+                    </td>
+                )}
             </tr>
         )
     }

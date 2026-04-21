@@ -2,3 +2,32 @@
     opacity:0.6;
     
 }
+
+.tableHeaderButton{
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+/* 
+.tableHeaderButton:hover{
+    border-color: var(--border);
+    background: rgba(243, 182, 31, 0.06);
+} */
+/* 
+.tableHeaderButton:focus-visible{
+    outline: 3px solid rgba(243, 182, 31, 0.35);
+    outline-offset: 2px;
+} */
+
+.totalRow th,
+.totalRow td{
+    border-bottom: none;
+    border-top: 1px solid var(--border-strong);
+    font-weight: 700;
+}

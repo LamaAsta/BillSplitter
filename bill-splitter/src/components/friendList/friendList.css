@@ -1,12 +1,49 @@
-.namePlate{
-    padding:0px 4px;
-    margin-block-end: 10px;
-    border-width:0 0 0  3px;
-    border-style:solid;
-    border-color:#F3B61F;
+.friendList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
 }
 
-.addMemberButton{
-    width:100%;
-    margin-block:10px;
+.friendPill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(243, 182, 31, 0.06);
+}
+
+.friendName {
+    font-weight: 600;
+    letter-spacing: 0.1px;
+}
+
+.emptyHint {
+    margin: 0 0 var(--space-4);
+}
+
+.friendAddRow {
+    margin-bottom: 0;
+}
+
+.friendAddField {
+    flex: 1;
+    min-width: 220px;
+}
+
+.primaryButton {
+    background: rgba(243, 182, 31, 0.12);
+}
+
+@media (max-width: 640px) {
+    .friendAddField {
+        min-width: 100%;
+    }
+
+    .primaryButton {
+        width: 100%;
+    }
 }

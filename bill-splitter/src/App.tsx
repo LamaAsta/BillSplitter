@@ -23,36 +23,39 @@ function App() {
   return (
     <>
       <div className = 'container'>
-        <div>
+        <div className="panel">
           <TitleImpl/>
         </div>
-        <div>
-          <div className = 'leftPanel'>
+
+        <div className="row">
+          <div className="panel">
             <AddItemImpl
               itemList={itemList}
               setItemList={setItemList}
             />
           </div>
-          <div className = 'rightPanel'>
+          <div className="panel">
             <FriendListImpl
               friendsList={friendsList}
               setFriendsList={setFriendsList}
             />
           </div>
         </div>
-        <div>
-            <DistributionTableImpl
-              itemList={itemList}
-              setItemList={setItemList}
-              friendsList={friendsList}
-              setFriendsList={setFriendsList}
-            />
+
+        <div className="panel">
+          <DistributionTableImpl
+            itemList={itemList}
+            setItemList={setItemList}
+            friendsList={friendsList}
+            setFriendsList={setFriendsList}
+          />
         </div>
-        <div>
-            <SplitTableImpl
-              friendsList={friendsList}
-              setFriendsList={setFriendsList}
-            />
+
+        <div className="panel">
+          <SplitTableImpl
+            friendsList={friendsList}
+            setFriendsList={setFriendsList}
+          />
         </div>
       </div>
     </>

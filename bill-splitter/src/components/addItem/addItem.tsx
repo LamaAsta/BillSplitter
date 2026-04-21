@@ -5,56 +5,74 @@ export function AddItemImpl(props:addItemProps){
     const [newItem,setNewItem] = useState<IItem>({name:"Name",cost:0,dividedAmong:[]});
     
     const handleAddNewItem = ()=>{
-        if(newItem.cost<=0 || !newItem.name) return;
+        if(newItem.cost<=0 || !newItem.name || newItem.name === "Name") return;
         props.setItemList([...props.itemList,newItem]);
         setNewItem({name:"Name",cost:0,dividedAmong:[]})
     }
 
     return(
         <>
-            <div className="container">
-                <div>
-                    <input 
-                        type="text" 
-                        value={newItem.name}
-                        onChange={(e)=>setNewItem({...newItem,name:e.target.value})}
-                    />
-                    <input 
+            <h3 className="panelTitle">Items</h3>
+
+            <div className="fieldRow">
+                <div className="field">
+                    <label className="fieldLabel" htmlFor="item-name">Item</label>
+                    <input
+                        id="item-name"
                         type="text"
-                        value={newItem.cost}
-                        onChange={(e)=>setNewItem({...newItem,cost:Number(e.target.value)})}
+                        value={newItem.name === "Name" ? "" : newItem.name}
+                        placeholder="e.g. Pizza"
+                        onChange={(e)=>setNewItem({...newItem,name:e.target.value})}
+                        aria-label="Item name"
                     />
-                    <button
-                        onClick={()=>{handleAddNewItem()}}
-                    >
-                        add 
-                    </button>
                 </div>
+
+                <div className="field">
+                    <label className="fieldLabel" htmlFor="item-cost">Cost</label>
+                    <input
+                        id="item-cost"
+                        type="number"
+                        inputMode="decimal"
+                        min={0}
+                        step="0.01"
+                        value={Number.isFinite(newItem.cost) && newItem.cost !== 0 ? newItem.cost : ""}
+                        placeholder="0.00"
+                        onChange={(e)=>setNewItem({...newItem,cost:Number(e.target.value)})}
+                        aria-label="Item cost"
+                    />
+                </div>
+
+                <button
+                    className="primaryButton"
+                    onClick={()=>{handleAddNewItem()}}
+                    type="button"
+                >
+                    Add item
+                </button>
+            </div>
+
+            {props.itemList.length === 0 ? (
+                <p className="emptyHint">No items yet — add one above.</p>
+            ) : (
                 <div className="tableMobileView">
                     <table>
                         <thead>
-                            <th>
-                                Item Name
-                            </th>
-                            <th>
-                                Price
-                            </th>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Cost</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            {props.itemList.map((item:IItem)=>{
-                                return(
-                                    <tr>
-                                        <td>{item.name}</td>
-                                        <td>{item.cost}</td>
-                                    </tr>
-                                )
-                            })}
+                            {props.itemList.map((item:IItem)=>(
+                                <tr key={item.name}>
+                                    <td>{item.name}</td>
+                                    <td>{item.cost.toFixed(2)}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
-            </div>
-                
-
+            )}
         </>
     )
 
