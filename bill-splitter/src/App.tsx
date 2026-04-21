@@ -25,7 +25,7 @@ function App() {
           isActive:true
         },
         {
-          name:"Ank",
+          name:"Ankith",
           owes:0,
           isActive:true
         },
