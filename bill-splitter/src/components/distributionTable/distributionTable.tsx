@@ -14,7 +14,7 @@ export function DistributionTableImpl(
             <td>
                 <input 
                     type="checkbox"
-                    onClick={(s)=>handleChange(e,f,s)}
+                    onChange={(s)=>handleChange(e,f,s)}
                 >
                 </input>
             </td>
