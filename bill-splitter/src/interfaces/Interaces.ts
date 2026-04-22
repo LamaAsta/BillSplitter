@@ -11,8 +11,14 @@ export interface IFriend{
 }
 
 export interface friendListProps{
+    handleItemOnUserDelete:(args:string)=>void;
     setFriendsList:(args:IFriend[])=>void;
     friendsList:IFriend[];
+}
+
+export interface friendPillProps{
+    friend:IFriend;
+    removeFriend:(args:IFriend)=>void;
 }
 
 export interface addItemProps{

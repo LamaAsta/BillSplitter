@@ -7,6 +7,20 @@
     gap: var(--space-2);
 }
 
+.deleteUser{
+    display: flex;
+    height:10px;
+    width:10px;
+    font-size: xx-small;
+    justify-content:center;
+    align-content:center;
+    flex-wrap:wrap;
+    border-radius: 50%;
+    background-color: rgba(200,200,200,0.9);
+    color:#190b28;
+    cursor:pointer;
+}
+
 .friendPill {
     display: inline-flex;
     align-items: center;

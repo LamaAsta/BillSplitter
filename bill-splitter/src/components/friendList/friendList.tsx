@@ -1,22 +1,25 @@
 import { useState } from "react";
-import type { friendListProps,IFriend} from "../../interfaces/Interaces";
+import type { friendListProps, IFriend} from "../../interfaces/Interaces";
+import { FriendPillImpl } from "./friendPill";
 import "./friendList.css"
 
 export function FriendListImpl(props:friendListProps){
     const [newMember,setNewMember] = useState<string>('');
-    const namePlate = (friend:IFriend)=>{
-        return(
-            <li className="friendPill" key={friend.name}>
-                <span className="friendName">{friend.name}</span>
-            </li>
-        )
-    }
     const handleAddMember = ()=>{
         if(!newMember.trim()){
             return;
         }
         props.setFriendsList([...props.friendsList,{name:newMember,owes:0,isActive:true}])
         setNewMember('');
+    }
+
+    const handleDeleteMember = (friend:IFriend)=>{
+        props.setFriendsList(
+            props.friendsList.filter(
+                (item:IFriend)=>item.name !== friend.name
+            )
+        )
+        props.handleItemOnUserDelete(friend.name)
     }
     return(
         <>
@@ -26,7 +29,12 @@ export function FriendListImpl(props:friendListProps){
                 <p className="emptyHint">Add friends to start splitting items.</p>
             ) : (
                 <ul className="friendList">
-                    {props.friendsList.map(namePlate)}
+                    {props.friendsList.map((friend:IFriend)=>
+                        <FriendPillImpl
+                            friend={friend}
+                            removeFriend={handleDeleteMember}
+                        />)
+                    }
                 </ul>
             )}
 

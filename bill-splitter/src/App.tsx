@@ -69,6 +69,18 @@ function App() {
   },
   [])
 
+  const handleItemOnUserDelete = (name:string)=>{
+    setItemList(
+      itemList.map(
+        (item:IItem)=>{
+          return {
+            ...item,
+            dividedAmong : item.dividedAmong.filter((friendName)=> friendName != name)
+          }
+        }
+      )
+    )
+  }
 
   return (
     <>
@@ -88,6 +100,7 @@ function App() {
             <FriendListImpl
               friendsList={friendsList}
               setFriendsList={setFriendsList}
+              handleItemOnUserDelete={handleItemOnUserDelete}
             />
           </div>
         </div>
