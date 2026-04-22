@@ -5,11 +5,16 @@ export function FriendPillImpl(props:friendPillProps){
 
     return(
         <>
-            <li className="friendPill" key={props.friend.name}>
-                <span className="friendName">{props.friend.name}</span>
-            </li>
-            <div className="deleteUser" onClick={()=>props.removeFriend(props.friend)}>
-                x
+            <div >
+                <div 
+                    className={`deleteUser  ${props.editMode? " " : "hiddenTicks"}`} 
+                    onClick={()=>props.removeFriend(props.friend)}
+                >
+                    x
+                </div>
+                <li className={`friendPill ${props.editMode?"vibrate":""}`} key={props.friend.name}>
+                    <span className="friendName">{props.friend.name}</span>
+                </li>
             </div>
         </>
     )

@@ -19,6 +19,7 @@ export interface friendListProps{
 export interface friendPillProps{
     friend:IFriend;
     removeFriend:(args:IFriend)=>void;
+    editMode:boolean;
 }
 
 export interface addItemProps{

@@ -19,6 +19,7 @@
     background-color: rgba(200,200,200,0.9);
     color:#190b28;
     cursor:pointer;
+    justify-self: end;
 }
 
 .friendPill {
@@ -48,8 +49,52 @@
     min-width: 220px;
 }
 
+.friendListPanelTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .primaryButton {
     background: rgba(243, 182, 31, 0.12);
+}
+
+.editButton > img{
+    max-height:20px;
+    max-width: 20px;
+    background-color: var(--text);
+}
+
+.editButton{
+    justify-content: baseline;
+}
+
+.hiddenTicks{
+    visibility: hidden;
+}
+
+.vibrate{
+    animation: vibrates 0.65s  infinite alternate;
+    animation-timing-function: cubic-bezier(1, 0.81, 0, 0.26);
+}
+
+@keyframes vibrates{
+    0%{
+        rotate: 0deg;
+        translate: 0 0 ;
+    }
+    33%{
+        rotate: 5deg;
+        translate: 2px -1px;
+    }
+    66%{
+        rotate: -5deg;
+        translate: -2px 1px;
+    }
+    100%{
+        rotate: 0deg;
+        translate: 0 0 ;
+    }
 }
 
 @media (max-width: 640px) {

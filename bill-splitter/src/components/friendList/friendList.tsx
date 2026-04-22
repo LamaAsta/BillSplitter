@@ -5,6 +5,8 @@ import "./friendList.css"
 
 export function FriendListImpl(props:friendListProps){
     const [newMember,setNewMember] = useState<string>('');
+    const [editMode,setEditMode] = useState<boolean>(false);
+
     const handleAddMember = ()=>{
         if(!newMember.trim()){
             return;
@@ -21,9 +23,26 @@ export function FriendListImpl(props:friendListProps){
         )
         props.handleItemOnUserDelete(friend.name)
     }
+
+
+
     return(
         <>
-            <h3 className="panelTitle">Friends</h3>
+            <div className="friendListPanelTitle">
+
+                <h3 className="panelTitle">Friends</h3>
+                <span
+                    className="editButton"
+                    onClick={()=>{setEditMode(!editMode)}}
+                >
+                    {
+                        editMode ?
+                        <img src = 'https://cdn-icons-png.flaticon.com/512/33/33281.png'/>
+                        :
+                        <img src = 'https://www.freeiconspng.com/thumbs/edit-icon-png/edit-new-icon-22.png'/>
+                    }
+                </span>
+            </div>
 
             {props.friendsList.length === 0 ? (
                 <p className="emptyHint">Add friends to start splitting items.</p>
@@ -33,6 +52,7 @@ export function FriendListImpl(props:friendListProps){
                         <FriendPillImpl
                             friend={friend}
                             removeFriend={handleDeleteMember}
+                            editMode={editMode}
                         />)
                     }
                 </ul>
