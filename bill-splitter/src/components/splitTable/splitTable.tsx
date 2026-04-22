@@ -3,22 +3,23 @@ import type { IFriend,splitTableProps } from "../../interfaces/Interaces";
 
 export function SplitTableImpl(props:splitTableProps){
     const [tax,setTax] = useState<number>(0)
+    const [discount,setDiscount] = useState<number>(0)
     const [finalSplit,setFinalSplit] = useState<IFriend[]>([])
 
-    const handleTaxChange = (tax:number)=>{
+    const handleTaxDiscountChange = (tax:number,discount:number)=>{
         console.log(props.friendsList.filter((friend:IFriend)=>friend.isActive))
         const n = props.friendsList.filter((friend:IFriend)=>friend.isActive).length
         const share = tax/n
+        const multiplier = (100-discount)/100
         const updateFriendList = props.friendsList.map((friend:IFriend) => {
             return friend.isActive ?  
             {
             ...friend,
-            owes:friend.owes + share,
+            owes:(friend.owes + share)*multiplier,
             }
             :
             friend    
     })
-        console.log("updated:",updateFriendList)
         setFinalSplit(updateFriendList);
     }
 
@@ -29,17 +30,23 @@ export function SplitTableImpl(props:splitTableProps){
                 <div className="taxBar">
                     <div className="taxField">
                         <div className="taxLabel">Tax / tip / fees</div>
-                    <input
-                        className="taxInput"
-                        value = {tax}
-                        onChange = {(e:any)=>setTax(e.target.value)}
-                    />
+                        <input
+                            className="taxInput"
+                            value = {tax}
+                            onChange = {(e:any)=>setTax(e.target.value)}
+                        />
+                        <div className="taxLabel">Discount</div>
+                        <input
+                            className="discountInput"
+                            value = {discount}
+                            onChange={(e:any)=>setDiscount(e.target.value)}
+                        />
                     </div>
                     <button
                         className="taxButton"
-                        onClick = {()=>handleTaxChange(tax)}
+                        onClick = {()=>handleTaxDiscountChange(tax,discount)}
                     >
-                        add
+                        calculate total
                     </button>
                 </div>
                 <div className="tableMobileView">   
