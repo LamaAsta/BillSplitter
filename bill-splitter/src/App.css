@@ -118,6 +118,17 @@ input:focus-visible {
   background: rgba(243, 182, 31, 0.12);
 }
 
+.editButton > img{
+    max-height:20px;
+    max-width: 20px;
+    background-color: var(--text);
+    padding:1px;
+}
+
+.editButton{
+    justify-content: baseline;
+}
+
 @media (max-width: 640px) {
   .taxField{
     min-width: 100%;

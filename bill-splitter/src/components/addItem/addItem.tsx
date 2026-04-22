@@ -10,6 +10,11 @@ export function AddItemImpl(props:addItemProps){
         setNewItem({name:"Name",cost:0,dividedAmong:[]})
     }
 
+    const handleDeleteItem = (name:string)=>{
+        props.setItemList(
+            props.itemList.filter((item:IItem)=>item.name!= name)
+        )
+    }
     return(
         <>
             <h3 className="panelTitle">Items</h3>
@@ -60,6 +65,7 @@ export function AddItemImpl(props:addItemProps){
                             <tr>
                                 <th scope="col">Item</th>
                                 <th scope="col">Cost</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,6 +73,14 @@ export function AddItemImpl(props:addItemProps){
                                 <tr key={item.name}>
                                     <td>{item.name}</td>
                                     <td>{item.cost.toFixed(2)}</td>
+                                    <td>
+                                        <span 
+                                            className="editButton"
+                                            onClick={()=>{handleDeleteItem(item.name)}}
+                                        >
+                                            <img src="https://cdn-icons-png.flaticon.com/512/54/54195.png"/>
+                                        </span>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

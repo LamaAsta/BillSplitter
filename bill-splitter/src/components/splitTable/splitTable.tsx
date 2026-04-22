@@ -7,7 +7,6 @@ export function SplitTableImpl(props:splitTableProps){
     const [finalSplit,setFinalSplit] = useState<IFriend[]>([])
 
     const handleTaxDiscountChange = (tax:number,discount:number)=>{
-        console.log(props.friendsList.filter((friend:IFriend)=>friend.isActive))
         const n = props.friendsList.filter((friend:IFriend)=>friend.isActive).length
         const share = tax/n
         const multiplier = (100-discount)/100
